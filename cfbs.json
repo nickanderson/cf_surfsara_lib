@@ -10,8 +10,9 @@
       "version": "1.0.0",
       "dependencies": ["autorun"],
       "steps": [
-        "copy ./masterfiles/lib/scl lib/",
-        "copy ./masterfiles/services/scl services/"
+        "copy ./masterfiles/lib/scl/ lib/scl/",
+        "copy ./masterfiles/services/autorun/scl.cf services/autorun/scl.cf",
+        "copy ./services/ services/scl/"
       ]
     }
   }
