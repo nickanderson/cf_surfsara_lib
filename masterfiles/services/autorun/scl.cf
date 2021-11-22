@@ -16,6 +16,8 @@ bundle agent scl_autorun {
         "tags" slist => { "autorun" };
 
     methods:
+        "" usebundle => scl_templates_installed(),
+           comment => "Make sure templates are present in $(sys.workdir)/templates";
         "" usebundle => scl_inventory_modules(),
             comment => "Which inventory module must be run, controlled via 'def.scl_inventory_modules'";
         "" usebundle => scl_services_autorun(),
@@ -24,4 +26,11 @@ bundle agent scl_autorun {
     reports:
         verbose_mode::
             "$(this.bundle): SCL lib loaded with node template dir: $(def.node_template_dir)";
+}
+bundle agent scl_templates_installed
+{
+  files:
+      "$(sys.workdir)/templates/"
+        copy_from => local_dcp("$(sys.policy_entry_dirname)/templates/scl/"),
+        depth_search => recurse_with_base(inf);
 }

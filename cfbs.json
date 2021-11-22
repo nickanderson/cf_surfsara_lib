@@ -11,6 +11,7 @@
       "dependencies": ["autorun"],
       "steps": [
         "copy ./masterfiles/lib/scl/ lib/scl/",
+        "copy ./templates/ templates/scl/",
         "copy ./masterfiles/services/autorun/scl.cf services/autorun/scl.cf",
         "copy ./services/ services/scl/"
       ]
